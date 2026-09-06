@@ -1,0 +1,23 @@
+[Unit]
+Description=Prayer Notice Discord Bot
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Replace 'username' with your Linux Mint username
+User=your_linux_username
+WorkingDirectory=/home/your_linux_username/prayer-notice
+
+# Path to python in virtual environment
+ExecStart=/home/your_linux_username/prayer-notice/.venv/bin/python main.py
+
+# Restart policy: automatically restarts on failure or system reboot
+Restart=always
+RestartSec=10
+
+# Environment variables
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
